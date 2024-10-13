@@ -6,4 +6,3 @@ if -10**9 <= int(splitnum[0]) <= 10**9+1:
     else: print('Error')
 else: print('Error')
 
-
