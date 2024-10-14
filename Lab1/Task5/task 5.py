@@ -33,10 +33,6 @@ sl = sel_sort(l)  # Сортируем массив с помощью функц
 with open('output.txt', 'w') as file:
     file.write(' '.join(map(str, sl)))  # Записываем отсортированный массив в файл
 
-
-
-
-
 # Выводим время выполнения программы
 elapsed_time = time.perf_counter() - t_start
 print(f"Время выполнения: {elapsed_time:.6f} секунд")
