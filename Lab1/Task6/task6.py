@@ -19,21 +19,19 @@ def bubble_sort(arr):
     return arr  # Возвращаем отсортированный массив
 
 
-def main():
-    # Чтение данных из файла
-    with open('input.txt', 'r') as file:
-        n = int(file.readline().strip())  # Читаем число элементов
-        arr = list(map(int, file.readline().strip().split()))  # Читаем массив из строки и преобразуем в список
 
-    sorted_arr = bubble_sort(arr)  # Сортируем массив с помощью функции bubble_sort
+with open('input.txt', 'r') as file:
+    n = int(file.readline().strip())  # Читаем число элементов
+    arr = list(map(int, file.readline().strip().split()))  # Читаем массив из строки и преобразуем в список
 
-    # Запись результата в файл
-    with open('output.txt', 'w') as file:
-        file.write(' '.join(map(str, sorted_arr)))  # Записываем отсортированный массив в файл
+sorted_arr = bubble_sort(arr)  # Сортируем массив с помощью функции bubble_sort
+
+# Запись результата в файл
+with open('output.txt', 'w') as file:
+    file.write(' '.join(map(str, sorted_arr)))  # Записываем отсортированный массив в файл
 
 
-if __name__ == "__main__":
-    main()  # Запускаем основную функцию
+
 
 
 # Вычисляем время выполнения

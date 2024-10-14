@@ -21,21 +21,20 @@ def sel_sort(l):
     return l  # Возвращаем отсортированный массив
 
 
-def main():
-    # Чтение данных из файла
-    with open('input.txt', 'r') as file:
-        n = int(file.readline().strip())  # Читаем число элементов
-        l = list(map(int, file.readline().strip().split()))  # Читаем массив из строки и преобразуем в список
 
-    sl = sel_sort(l)  # Сортируем массив с помощью функции selection_sort
+# Чтение данных из файла
+with open('input.txt', 'r') as file:
+    n = int(file.readline().strip())  # Читаем число элементов
+    l = list(map(int, file.readline().strip().split()))  # Читаем массив из строки и преобразуем в список
 
-    # Запись результата в файл
-    with open('output.txt', 'w') as file:
-        file.write(' '.join(map(str, sl)))  # Записываем отсортированный массив в файл
+sl = sel_sort(l)  # Сортируем массив с помощью функции selection_sort
+
+# Запись результата в файл
+with open('output.txt', 'w') as file:
+    file.write(' '.join(map(str, sl)))  # Записываем отсортированный массив в файл
 
 
-if __name__ == "__main__":
-    main()  # Запускаем основную функцию
+
 
 
 # Выводим время выполнения программы
