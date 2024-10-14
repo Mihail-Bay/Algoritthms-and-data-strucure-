@@ -8,7 +8,6 @@ t_start = time.perf_counter()  # Запоминаем время начала в
 
 
 def sel_sort(l):
-    """Функция для сортировки массива методом выборки."""
     n = len(l)  # Определяем размер массива
     for i in range(n):  # Проходим по каждому элементу массива
         # Предполагаем, что текущий элемент — наименьший
@@ -49,3 +48,40 @@ print(f"Текущая память: {current / 10**6:.6f} МБ; Пиковая 
 
 # Останавливаем отслеживание использования памяти
 tracemalloc.stop()
+
+import unittest
+
+class TestSelSort(unittest.TestCase):
+
+    def test_sorted_array(self):
+        l = [1, 2, 3, 4, 5]
+        result = sel_sort(l.copy())
+        self.assertEqual(result, [1, 2, 3, 4, 5])
+
+    def test_reverse_sorted_array(self):
+        l = [5, 4, 3, 2, 1]
+        result = sel_sort(l.copy())
+        self.assertEqual(result, [1, 2, 3, 4, 5])
+
+    def test_unsorted_array(self):
+        l = [3, 1, 4, 5, 2]
+        result = sel_sort(l.copy())
+        self.assertEqual(result, [1, 2, 3, 4, 5])
+
+    def test_array_with_duplicates(self):
+        l = [3, 1, 2, 1, 2]
+        result = sel_sort(l.copy())
+        self.assertEqual(result, [1, 1, 2, 2, 3])
+
+    def test_empty_array(self):
+        l = []
+        result = sel_sort(l.copy())
+        self.assertEqual(result, [])
+
+    def test_single_element_array(self):
+        l = [1]
+        result = sel_sort(l.copy())
+        self.assertEqual(result, [1])
+
+if __name__ == '__main__':
+    unittest.main()

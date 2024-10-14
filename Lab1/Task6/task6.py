@@ -46,3 +46,40 @@ print(f"Текущая память: {current / 10**6:.6f} МБ; Пиковая 
 
 # Останавливаем отслеживание памяти
 tracemalloc.stop()
+
+import unittest
+
+class TestBubbleSort(unittest.TestCase):
+
+    def test_sorted_array(self):
+        arr = [1, 2, 3, 4, 5]
+        result = bubble_sort(arr.copy())
+        self.assertEqual(result, [1, 2, 3, 4, 5])
+
+    def test_reverse_sorted_array(self):
+        arr = [5, 4, 3, 2, 1]
+        result = bubble_sort(arr.copy())
+        self.assertEqual(result, [1, 2, 3, 4, 5])
+
+    def test_unsorted_array(self):
+        arr = [3, 1, 4, 5, 2]
+        result = bubble_sort(arr.copy())
+        self.assertEqual(result, [1, 2, 3, 4, 5])
+
+    def test_single_element_array(self):
+        arr = [1]
+        result = bubble_sort(arr.copy())
+        self.assertEqual(result, [1])
+
+    def test_empty_array(self):
+        arr = []
+        result = bubble_sort(arr.copy())
+        self.assertEqual(result, [])
+
+    def test_identical_elements(self):
+        arr = [2, 2, 2, 2, 2]
+        result = bubble_sort(arr.copy())
+        self.assertEqual(result, [2, 2, 2, 2, 2])
+
+if __name__ == '__main__':
+    unittest.main()
