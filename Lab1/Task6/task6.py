@@ -30,10 +30,6 @@ sorted_arr = bubble_sort(arr)  # Сортируем массив с помощь
 with open('output.txt', 'w') as file:
     file.write(' '.join(map(str, sorted_arr)))  # Записываем отсортированный массив в файл
 
-
-
-
-
 # Вычисляем время выполнения
 elapsed_time = time.perf_counter() - t_start
 print(f"Время выполнения: {elapsed_time:.6f} секунд")
