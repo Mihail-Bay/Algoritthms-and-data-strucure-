@@ -41,12 +41,12 @@ Lab-2/
 |   |   |-- test_Binary_Search.py
 |
 |-- Task-5/
-|   |-- src/
-|   |   |-- input.txt
-|   |   |-- Delegate_Of_Majority.py
-|   |   |-- output.txt
-|   |-- tests/
-|   |   |-- test_Delegate_Of_Majority.py
+    |-- src/
+    |   |-- input.txt
+    |   |-- Delegate_Of_Majority.py
+    |   |-- output.txt
+    |-- tests/
+        |-- test_Delegate_Of_Majority.py
 ```
 
 ## Задачи
@@ -81,7 +81,7 @@ Lab-2/
 2. **Убедитесь, что файл ****************`input.txt`**************** содержит корректные данные** в соответствии с форматом задачи.
 3. **Запустите соответствующий скрипт Python** для выполнения задачи, например:
    ```sh
-   python merge_sort.py
+   python Merge_Sort.py
    ```
 4. **Результат работы будет записан в файл** `output.txt`.
 
@@ -90,7 +90,7 @@ Lab-2/
 1. Перейдите в директорию с тестами (например, `Task-1/tests`).
 2. Выполните команду:
    ```sh
-   python -m unittest test_merge_sort.py
+   python -m unittest Merge_Sort.py
    ```
 3. Все тесты должны завершиться успешно, подтверждая корректность работы алгоритмов.
 
