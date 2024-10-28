@@ -45,7 +45,7 @@ def merge_sort(l):
 
 if __name__ == '__main__':
     # Открываем файл "input.txt" для чтения
-    with open('input.txt', 'r') as f:
+    with open('../txtf/input.txt', 'r') as f:
         n = int(f.readline().strip())  # Читаем количество элементов (первую строку) и преобразуем в целое число
         # Читаем вторую строку, разбиваем на числа и преобразуем в список целых чисел
         l = list(map(int, f.readline().strip().split()))
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     sl = merge_sort(l)
 
     # Открываем файл "output.txt" для записи
-    with open('output.txt', 'w') as f:
+    with open('../txtf/output.txt', 'w') as f:
         # Записываем отсортированный массив в файл в виде строки
         f.write(' '.join(map(str, sl)))
 
