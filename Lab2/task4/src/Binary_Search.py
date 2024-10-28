@@ -25,7 +25,7 @@ def binary_search(l, x):
 
 if __name__ == '__main__':
     # Чтение данных из файла input.txt
-    with open('input.txt', 'r') as f:
+    with open('../txtf/input.txt', 'r') as f:
         n = int(f.readline().strip())  # Читаем число элементов в массиве
         l = list(map(int, f.readline().strip().split()))  # Читаем отсортированный массив
         k = int(f.readline().strip())  # Читаем число значений для поиска
@@ -40,7 +40,7 @@ if __name__ == '__main__':
         r.append(ind)  # Добавляем результат в список
 
     # Запись результата в файл output.txt
-    with open('output.txt', 'w') as f:
+    with open('../txtf/output.txt', 'w') as f:
         f.write(' '.join(map(str, r)))  # Записываем индексы, разделяя пробелами
 
     # Вычисляем время выполнения

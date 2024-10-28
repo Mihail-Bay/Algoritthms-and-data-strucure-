@@ -50,14 +50,14 @@ def merge_sort_and_count(l):
 
 
 if __name__ == '__main__':
-    with open('input.txt', 'r') as f:  # Открываем файл для чтения
+    with open('../txtf/input.txt', 'r') as f:  # Открываем файл для чтения
         n = int(f.readline().strip())  # Читаем количество элементов в массиве
         l = list(map(int, f.readline().strip().split()))  # Читаем массив целых чисел
 
 
     sl, inversions = merge_sort_and_count(l)
 
-    with open('output.txt', 'w') as f:
+    with open('../txtf/output.txt', 'w') as f:
         f.write(str(inversions))  # Записываем число инверсий
 
     # Вычисляем время выполнения

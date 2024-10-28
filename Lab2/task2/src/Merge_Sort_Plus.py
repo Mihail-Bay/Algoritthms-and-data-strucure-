@@ -47,12 +47,12 @@ def merge_sort(l, output_file, start_index=1):
 
 if __name__ == '__main__':
     # Чтение входных данных из файла
-    with open('input.txt', 'r') as f:
+    with open('../txtf/input.txt', 'r') as f:
         n = int(f.readline().strip())  # Считываем количество элементов
         l = list(map(int, f.readline().strip().split()))  # Считываем массив чисел
 
     # Открытие выходного файла для записи
-    with open('output.txt', 'w') as f:
+    with open('../txtf/output.txt', 'w') as f:
         # Выполнение сортировки и передача файла для записи
         sl = merge_sort(l, f)
         # Запись отсортированных данных в выходной файл

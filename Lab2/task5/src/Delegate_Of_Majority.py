@@ -49,14 +49,14 @@ def majority_element(l):
 
 if __name__ == '__main__':
     # Чтение входного файла
-    with open('input.txt', 'r') as f:
+    with open('../txtf/input.txt', 'r') as f:
         n = int(f.readline().strip())  # Читаем размер массива
         l = list(map(int, f.readline().strip().split()))  # Читаем массив и преобразуем строки в целые числа
 
     # Вызываем функцию и записываем результат в выходной файл
     r = majority_element(l)
 
-    with open('output.txt', 'w') as f_out:
+    with open('../txtf/output.txt', 'w') as f_out:
         f_out.write(str(r))  # Записываем результат работы функции в файл
 
     # Вычисляем время выполнения
