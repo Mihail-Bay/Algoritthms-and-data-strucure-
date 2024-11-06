@@ -1,5 +1,9 @@
 import time
 import tracemalloc  # Импортируем модуль для отслеживания памяти
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+from Lab2.utils import read_input, write_output
 
 # Начинаем отслеживание использования памяти
 tracemalloc.start()
@@ -50,16 +54,13 @@ def merge_sort_and_count(l):
 
 
 if __name__ == '__main__':
-    with open('../txtf/input.txt', 'r') as f:  # Открываем файл для чтения
-        n = int(f.readline().strip())  # Читаем количество элементов в массиве
-        l = list(map(int, f.readline().strip().split()))  # Читаем массив целых чисел
-
+    n, l = read_input(task=3)
+    n = int(n.strip())  # Читаем количество элементов в массиве
+    l = list(map(int, l.strip().split()))
 
     sl, inversions = merge_sort_and_count(l)
 
-    with open('../txtf/output.txt', 'w') as f:
-        f.write(str(inversions))  # Записываем число инверсий
-
+    write_output(3, str(inversions))
     # Вычисляем время выполнения
     elapsed_time = time.perf_counter() - t_start
     print(f"Время выполнения: {elapsed_time:.6f} секунд")

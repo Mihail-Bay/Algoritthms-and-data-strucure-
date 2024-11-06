@@ -1,5 +1,9 @@
 import time
 import tracemalloc  # Импортируем модуль для отслеживания памяти
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+from Lab2.utils import read_input, write_output
 
 # Начинаем отслеживание использования памяти
 tracemalloc.start()
@@ -24,7 +28,7 @@ def binary_search(l, x):
 
 
 if __name__ == '__main__':
-    # Чтение данных из файла input.txt
+    '''# Чтение данных из файла input.txt
     with open('../txtf/input.txt', 'r') as f:
         n = int(f.readline().strip())  # Читаем число элементов в массиве
         l = list(map(int, f.readline().strip().split()))  # Читаем отсортированный массив
@@ -41,7 +45,24 @@ if __name__ == '__main__':
 
     # Запись результата в файл output.txt
     with open('../txtf/output.txt', 'w') as f:
-        f.write(' '.join(map(str, r)))  # Записываем индексы, разделяя пробелами
+        f.write(' '.join(map(str, r)))  # Записываем индексы, разделяя пробелами'''
+
+    n, l, k, queries = read_input(task=4)
+    n = int(n.strip())  # Читаем число элементов в массиве
+    l = list(map(int, l.strip().split()))  # Читаем отсортированный массив
+    k = int(k.strip())  # Читаем число значений для поиска
+    queries = list(map(int,queries.strip().split()))  # Читаем значения для поиска
+
+    r = []
+
+    # Проходим по каждому элементу из queries
+    for q in queries:
+        ind = binary_search(l, q)  # Ищем индекс элемента в массиве
+        r.append(ind)  # Добавляем результат в список
+
+    r = (' '.join(map(str, r)))
+
+    write_output(4, r)
 
     # Вычисляем время выполнения
     elapsed_time = time.perf_counter() - t_start

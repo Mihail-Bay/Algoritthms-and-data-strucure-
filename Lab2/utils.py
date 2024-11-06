@@ -6,7 +6,7 @@ def read_input(task):
 
     Возвращает список строк без символов перевода строки.
     """
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), f'Task-{task}', 'txtf', 'input.txt'))
+    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), f'task{task}', 'txtf', 'input.txt'))
     with open(base_path, 'r') as f:
         return [line.strip() for line in f.readlines()]
 
@@ -17,7 +17,7 @@ def write_output(task, *args):
 
     Принимает переменное количество аргументов и записывает каждый на новой строке.
     """
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), f'Task-{task}', 'txtf', 'output.txt'))
+    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), f'task{task}', 'txtf', 'output.txt'))
     with open(base_path, 'w') as f:
         for arg in args:
             print(arg, file=f)

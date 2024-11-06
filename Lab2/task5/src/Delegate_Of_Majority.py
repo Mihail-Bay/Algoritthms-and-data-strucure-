@@ -1,5 +1,9 @@
 import time
 import tracemalloc  # Импортируем модуль для отслеживания памяти
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+from Lab2.utils import read_input, write_output
 
 # Начинаем отслеживание использования памяти
 tracemalloc.start()
@@ -48,16 +52,13 @@ def majority_element(l):
 
 
 if __name__ == '__main__':
-    # Чтение входного файла
-    with open('../txtf/input.txt', 'r') as f:
-        n = int(f.readline().strip())  # Читаем размер массива
-        l = list(map(int, f.readline().strip().split()))  # Читаем массив и преобразуем строки в целые числа
+    n, l = read_input(task=5 )
+    n = int(n.strip())  # Читаем размер массива
+    l = list(map(int, l.strip().split()))  # Читаем массив и преобразуем строки в целые числа
 
-    # Вызываем функцию и записываем результат в выходной файл
     r = majority_element(l)
-
-    with open('../txtf/output.txt', 'w') as f_out:
-        f_out.write(str(r))  # Записываем результат работы функции в файл
+    
+    write_output(5, str(r))
 
     # Вычисляем время выполнения
     elapsed_time = time.perf_counter() - t_start
