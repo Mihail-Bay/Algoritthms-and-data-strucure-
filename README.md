@@ -4,7 +4,7 @@
 
 ## Навигация по репозиторию
 
-[﻿﻿﻿Лабораторная Nº0. Введение](https://github.com/Mihail-Bay/Algoritthms-and-data-strucure-/tree/main/lab0))
+[﻿﻿﻿Лабораторная Nº0. Введение](https://github.com/Mihail-Bay/Algoritthms-and-data-strucure-/tree/main/lab0)
 
 [﻿﻿﻿Лабораторная Nº1. Сортировка вставками, выбором, пузырьковая](https://github.com/Mihail-Bay/Algoritthms-and-data-strucure-/tree/main/Lab1)
 
