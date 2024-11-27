@@ -1,9 +1,6 @@
 import time
 import tracemalloc  # Импортируем модуль для отслеживания памяти
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from Lab2.utils import read_input, write_output
+
 # Начинаем отслеживание использования памяти
 tracemalloc.start()
 
@@ -49,14 +46,17 @@ def merge_sort(l, output_file, start_index=1):
     return merge(left, right, start_index, start_index + mid - 1, start_index + len(l) - 1, output_file)
 
 if __name__ == '__main__':
-    n, l = read_input(task=2)
+    # Чтение входных данных из файла
+    with open('../txtf/input.txt', 'r') as f:
+        n = int(f.readline().strip())  # Считываем количество элементов
+        l = list(map(int, f.readline().strip().split()))  # Считываем массив чисел
 
-    n = int(n.strip())
-    l = list(map(int, l.strip().split()))
+    # Открытие выходного файла для записи
     with open('../txtf/output.txt', 'w') as f:
-        sl = merge_sort(l, f )
-        sl = (' '.join(map(str, sl)))
-        write_output(2, sl)
+        # Выполнение сортировки и передача файла для записи
+        sl = merge_sort(l, f)
+        # Запись отсортированных данных в выходной файл
+        f.write(' '.join(map(str, sl)))  # Записываем отсортированный массив в файл
 
     # Вычисляем время выполнения
     elapsed_time = time.perf_counter() - t_start
