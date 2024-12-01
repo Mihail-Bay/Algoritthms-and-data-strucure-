@@ -1,6 +1,6 @@
 from Lab4.utils import read_input, write_output
 
-def stack_comands(task):
+def stack_commands(task):
     commands = read_input(task)
     n = int(commands[0])
     stack = []
@@ -16,4 +16,4 @@ def stack_comands(task):
     write_output(task, output)
 
 if __name__ == '__main__':
-    stack_comands(task=1)
+    stack_commands(task=1)
