@@ -14,10 +14,6 @@ def line_of_brackets(brackets):
 
 
 
-
-
-
-
 if __name__ == '__main__':
     brackets = read_input(task=4)
     br = line_of_brackets(brackets)
