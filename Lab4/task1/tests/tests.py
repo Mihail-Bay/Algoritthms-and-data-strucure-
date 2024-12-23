@@ -1,17 +1,67 @@
 import unittest
-from Lab4.task1.src.Stack import stack_commands
+from Lab4.task1.src.Stack import *
 
 
-class TestStackCommands(unittest.TestCase):
+class TestStack(unittest.TestCase):
+    def setUp(self):
+        self.stack = Stack()
 
-    def test_should_stack_commands(self):
-        self.assertEqual(stack_commands(['5', '+ 1', '+ 2', '-', '+ 3', '-'], 5), '2\n3')
 
-    def test_should_only_pops(self):
-        self.assertEqual(stack_commands(['4', '-', '-', '-'], 4), '')
+    def test_case_2(self):
+        # given
+        self.stack.array = ["3", "+ 10", "+ 1234", "-"]
+        expected_result = ['1234']
 
-    def test_should_more_pushes_than_pops(self):
-        self.assertEqual(stack_commands(['6', '+ 5', '+ 2', '+ 3', '-', '-', '+ 7', '-'], 6), '3\n2\n7')
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_3(self):
+        # given
+        self.stack.array = ["3", "+ 5", "+ 10", "-"]
+        expected_result = ['10']  # Проверка на правильность извлечения последнего элемента
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_4(self):
+        # given
+        self.stack.array = ["5", "+ 100", "+ 200", "+ 300", "-", "-"]
+        expected_result = ['300', '200']  # Проверка на извлечение двух последних элементов
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_5(self):
+        # given
+        self.stack.array = ["2", "+ 7", "-"]
+        expected_result = ['7']  # Проверка на извлечение единственного элемента
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_6(self):
+        #empty input
+        # given
+        self.stack.array = []
+        expected_result = []  # Проверка на извлечение единственного элемента
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
 
 if __name__ == '__main__':
     unittest.main()

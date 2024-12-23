@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from Lab3.utils import read_input, write_output
+from Lab3.utils import read_input, write_output, decorate
 
 
 def can_sort_matriochkas(n, k, sizes):
@@ -28,8 +28,8 @@ def can_sort_matriochkas(n, k, sizes):
         return "NO"
 
 
-if __name__ == "__main__":
 
+def main():
     n, sizes = read_input(task=3)
 
     n, k = map(int, n.strip().split())
@@ -38,3 +38,6 @@ if __name__ == "__main__":
     result = can_sort_matriochkas(n, k, sizes)
 
     write_output(3, str(result))
+
+if __name__ == "__main__":
+    decorate(task=3, task_name='PugaloSort')

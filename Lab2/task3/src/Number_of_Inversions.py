@@ -1,73 +1,39 @@
-import time
-import tracemalloc  # Импортируем модуль для отслеживания памяти
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from Lab2.utils import read_input, write_output
-
-# Начинаем отслеживание использования памяти
-tracemalloc.start()
-
-t_start = time.perf_counter()  # Запоминаем начало времени выполнения
-
+from Lab2.utils import read_input, write_output, decorate
 
 def merge_and_count(left, right):
-    r = []  # Инициализируем пустой список для хранения отсортированных элементов
-    i = q = 0  # Индексы для подмассивов left и right
-    inversions_count = 0  # Счетчик инверсий
+    r = []
+    i = q = 0
+    inversions_count = 0
 
-    # Проходим по обоим массивам, пока не достигнем конца одного из них
     while i < len(left) and q < len(right):
-        if left[i] <= right[q]:  # Сравниваем текущие элементы
-            r.append(left[i])  # Если элемент из left меньше, добавляем его в результат
-            i += 1  # Переходим к следующему элементу в left
+        if left[i] <= right[q]:
+            r.append(left[i])
+            i += 1
         else:
-            # Здесь, если элемент из right меньше, значит, все оставшиеся элементы в left
-            # образуют инверсии с текущим элементом right[j]
-            inversions_count += len(left) - i  # Увеличиваем счетчик инверсий
-            r.append(right[q])  # Добавляем элемент из right в результат
-            q += 1  # Переходим к следующему элементу в right
+            inversions_count += len(left) - i
+            r.append(right[q])
+            q += 1
 
-    r.extend(left[i:])  # Добавляем оставшиеся элементы из left, если они есть
-    r.extend(right[q:])  # Добавляем оставшиеся элементы из right, если они есть
-
-    return r, inversions_count  # Возвращаем отсортированный массив и количество инверсий
-
+    r.extend(left[i:])
+    r.extend(right[q:])
+    return r, inversions_count
 
 def merge_sort_and_count(l):
-    if len(l) <= 1:  # Если массив имеет 0 или 1 элемент
-        return l, 0  # Возвращаем его и 0 инверсий
+    if len(l) <= 1:
+        return l, 0
 
-    mid = len(l) // 2  # Находим середину массива
-
-    # Рекурсивно сортируем левую и правую половины и считаем инверсии
+    mid = len(l) // 2
     left, left_inversions = merge_sort_and_count(l[:mid])
     right, right_inversions = merge_sort_and_count(l[mid:])
-
-    # Сливаем отсортированные подмассивы и считаем инверсии при слиянии
     merged, split_inversions = merge_and_count(left, right)
 
-    # Общее количество инверсий - инверсии в левой части + инверсии в правой части + инверсии при слиянии
     total_inversions = left_inversions + right_inversions + split_inversions
+    return merged, total_inversions
 
-    return merged, total_inversions  # Возвращаем отсортированный массив и общее количество инверсий
-
+def main():
+    n, l = read_input(task=3)
+    sl, inversions = merge_sort_and_count(l)
+    write_output(3, str(inversions))
 
 if __name__ == '__main__':
-    n, l = read_input(task=3)
-    n = int(n.strip())  # Читаем количество элементов в массиве
-    l = list(map(int, l.strip().split()))
-
-    sl, inversions = merge_sort_and_count(l)
-
-    write_output(3, str(inversions))
-    # Вычисляем время выполнения
-    elapsed_time = time.perf_counter() - t_start
-    print(f"Время выполнения: {elapsed_time:.6f} секунд")
-
-    # Получаем текущее использование памяти
-    current, peak = tracemalloc.get_traced_memory()
-    print(f"Текущая память: {current / 10**6:.6f} МБ; Пиковая память: {peak / 10**6:.6f} МБ")
-
-    # Останавливаем отслеживание памяти
-    tracemalloc.stop()
+    decorate(task=3, task_name='Number_of_Inversions')

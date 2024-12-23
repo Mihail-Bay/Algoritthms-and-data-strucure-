@@ -1,17 +1,78 @@
 import unittest
-from Lab4.task1.src.Stack import stack_commands
+from Lab4.task6.src.bracket_sequence_1 import *
+from Lab4.utils import read_input
 
 
-class TestStackCommands(unittest.TestCase):
+class TestStack(unittest.TestCase):
+    def setUp(self):
+        self.stack = Stack()
 
-    def test_should_stack_commands(self):
-        self.assertEqual(stack_commands(['5', '+ 1', '+ 2', '-', '+ 3', '-'], 5), '2\n3')
 
-    def test_should_only_pops(self):
-        self.assertEqual(stack_commands(['4', '-', '-', '-'], 4), '')
+    def test_case_1(self):
+        # given
+        self.stack.input_file = ['1', '[]']
+        expected_result = ['YES'] # Пример ожидаемой высоты дерева
 
-    def test_should_more_pushes_than_pops(self):
-        self.assertEqual(stack_commands(['6', '+ 5', '+ 2', '+ 3', '-', '-', '+ 7', '-'], 6), '3\n2\n7')
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_2(self):
+        # given
+        self.stack.input_file = ['10', '[]', '[()]', '[(])', '(()', '())', '[]()', '[[]]', '((()))', '(([[]]))', '([)]']
+        expected_result = ['YES', 'YES', 'NO', 'NO', 'NO', 'YES', 'YES', 'YES', 'YES', 'NO']  # Ожидаемые результаты для каждой строки
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_3(self):
+        # given
+        self.stack.input_file = ['10', '[]', '[()]', '[(])', '(()', '())', '[]()', '[[]]', '((()))', '(([[]]))', '([)]']
+        expected_result = ['YES', 'YES', 'NO', 'NO', 'NO', 'YES', 'YES', 'YES', 'YES', 'NO']  # Ожидаемые результаты для каждой строки
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_4(self):
+        # given
+        self.stack.input_file = ['5', '((()))', '(()())', '(()', '()((', '[[[]]]']
+        expected_result = ['YES', 'YES', 'NO', 'NO', 'YES']
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_5(self):
+        # given
+        self.stack.input_file = ['6', '([{}])', '[(])', '{[()]}', '((({}))', '([]{})', '([)]']
+        expected_result = ['YES', 'NO', 'YES', 'NO', 'YES', 'NO']  # Ожидаемые результаты для каждой строки
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_6(self):
+        # given
+        self.stack.input_file = ['8', '[]()', '([])', '[()]', '(([]))', '((()))', '((]', '(()))', '([)]']
+        expected_result = ['YES', 'YES', 'YES', 'YES', 'YES', 'NO', 'NO', 'NO']  # Ожидаемые результаты для каждой строки
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
 
 if __name__ == '__main__':
     unittest.main()

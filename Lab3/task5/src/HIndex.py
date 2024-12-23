@@ -2,7 +2,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from Lab3.utils import read_input, write_output
+from Lab3.utils import read_input, write_output, decorate
 
 
 def Calculate_H_Index(citations):
@@ -19,7 +19,7 @@ def Calculate_H_Index(citations):
     return I_counter
 
 
-if __name__ == '__main__':
+def main():
     lines = read_input(task=5)  # Получаем список строк
     combined_str = ' '.join(lines)  # Объединяем строки в одну строку
 
@@ -28,3 +28,6 @@ if __name__ == '__main__':
 
     res = Calculate_H_Index(citations)
     write_output(5, res )  # Указываем task при записи
+
+if __name__ == '__main__':
+    decorate(task=5, task_name='HIndex')

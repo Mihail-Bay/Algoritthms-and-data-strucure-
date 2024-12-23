@@ -1,15 +1,11 @@
-import time
-import tracemalloc
+
 import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from Lab3.utils import read_input, write_output
+from Lab3.utils import read_input, write_output, decorate
 
-# Начинаем отслеживание использования памяти
-tracemalloc.start()
 
-t_start = time.perf_counter()  # Запоминаем начало времени выполнения
 
 def count_segments_containing_points(s, p, segments, points):
     # Список событий
@@ -48,7 +44,7 @@ def count_segments_containing_points(s, p, segments, points):
 
 
 # Чтение входных данных
-if __name__ == "__main__":
+def main():
     l = read_input(task=4)
     s, p = map(int, l[0].split())
     segments = [tuple(map(int, l[_ + 1].split())) for _ in range(s)]
@@ -58,3 +54,6 @@ if __name__ == "__main__":
 
     res = (" ".join(map(str, res)) + "\n")
     write_output(4, res)
+
+if __name__ == "__main__":
+    decorate(task=4, task_name='SegmentsAndPonts')

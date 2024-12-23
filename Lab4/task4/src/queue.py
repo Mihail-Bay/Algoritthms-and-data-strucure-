@@ -1,27 +1,28 @@
 import sys
 import os
-
 from Lab4.utils import read_input, write_output, decorate
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-class Stack:
+class Queue:
     def __init__(self):
-        self.input_file = read_input(1)
-        self.array = self.input_file[1:]
-        self.stack = []
+        self.queue = []
+        self.input_file = read_input(2)
+        self.n = int(self.input_file[0])
 
     def pop(self):
-        removed = self.stack.pop()
-        return removed
+        if len(self.queue) == 0:
+            return None
+        res = self.queue.pop(0)
+        return res
 
     def push(self, item):
-        self.stack.append(item)
+        self.queue.append(item)
 
 
     def result(self):
         pops = []
-        for i in self.array:
+        for i in self.input_file:
             arr = i.split()
             if arr[0] == '+':
                 self.push(arr[1])
@@ -30,11 +31,10 @@ class Stack:
         return pops
 
 def main():
-    stc = Stack()
-    pops = stc.result()
-    write_output(1, *pops)
-    [print(i) for i in pops]
-    return pops
+    q = Queue()
+    res = q.result()
+    write_output(2, *res)
+    [print(i) for i in res]
 
-if __name__ == "__main__":
-    decorate(task=1, task_name="stack")
+if __name__ == '__main__':
+    decorate(task=2, task_name='queue')

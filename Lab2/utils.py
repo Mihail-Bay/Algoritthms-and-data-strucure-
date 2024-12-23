@@ -1,4 +1,7 @@
 import os
+import time
+import tracemalloc
+import importlib.util
 
 def read_input(task):
     """
@@ -21,3 +24,25 @@ def write_output(task, *args):
     with open(base_path, 'w') as f:
         for arg in args:
             print(arg, file=f)
+
+def decorate(task, task_name):
+    import time
+    import tracemalloc
+
+    main_path = os.path.abspath(os.path.join(os.path.dirname(__file__), f'task{task}', 'src', task_name))
+    spec = importlib.util.spec_from_file_location("main_module", main_path + '.py')
+    main_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(main_module)
+
+    tracemalloc.start()
+
+    start = time.perf_counter()
+
+    main_module.main()
+
+    end = time.perf_counter()
+
+    print("Время работы: ", end - start, "секунд")
+    current, peak = tracemalloc.get_traced_memory()
+    print(f"Пиковая память: {peak / 2 ** 20:.2f} MB")
+    tracemalloc.stop()

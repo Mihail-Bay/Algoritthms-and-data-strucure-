@@ -1,16 +1,10 @@
 import random
-import time
-import tracemalloc
 import sys
 import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from Lab3.utils import read_input, write_output
+from Lab3.utils import read_input, write_output, decorate
 
-# Начинаем отслеживание использования памяти
-tracemalloc.start()
-
-t_start = time.perf_counter()  # Запоминаем начало времени выполнения
 
 def partition(l, low, high):
     # Выбираем случайный индекс для использования в качестве опорного элемента
@@ -43,7 +37,7 @@ def randomized_quick_sort(l, low, high):
         randomized_quick_sort(l, q + 1, high)
 
 
-if __name__ == '__main__':
+def main():
     n, l = read_input(task=1)
 
     n = int(n.strip())
@@ -55,13 +49,5 @@ if __name__ == '__main__':
 
     write_output(1, sl)
 
-    # Вычисляем время выполнения
-    elapsed_time = time.perf_counter() - t_start
-    print(f"Время выполнения: {elapsed_time:.6f} секунд")
-
-    # Получаем текущее использование памяти
-    current, peak = tracemalloc.get_traced_memory()
-    print(f"Текущая память: {current / 10 ** 6:.6f} МБ; Пиковая память: {peak / 10 ** 6:.6f} МБ")
-
-    # Останавливаем отслеживание памяти
-    tracemalloc.stop()
+if __name__ == '__main__':
+    decorate(task=1, task_name='QuickSort')
