@@ -48,6 +48,8 @@ def main():
     sl = (' '.join(map(str, l)))
 
     write_output(1, sl)
+    print(sl)
+    print()
 
 if __name__ == '__main__':
     decorate(task=1, task_name='QuickSort')

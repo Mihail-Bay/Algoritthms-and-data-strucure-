@@ -1,8 +1,8 @@
-import sys
 import os
+import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from Lab6.utils import read_input, write_output, decorate
+from Lab6.utils import read_input, write_output, decorate  # Adjust this import if necessary
 
 
 class CustomSet:
@@ -10,34 +10,29 @@ class CustomSet:
         self.data = {}
 
     def add(self, x):
-        # Добавление элемента в множество
+        """Добавление элемента в множество."""
         self.data[x] = True
 
     def remove(self, x):
-        # Удаление элемента из множества
+        """Удаление элемента из множества."""
         if x in self.data:
             del self.data[x]
 
     def exists(self, x):
-        # Проверка существования элемента в множестве
+        """Проверка существования элемента в множестве."""
         return x in self.data
 
 
 def main():
-
-    input_file = '../txtf/input.txt'
-    output_file = '../txtf/output.txt'
-
     # Читаем входные данные
-    with open(input_file, 'r') as f:
-        n = int(f.readline().strip())
-        operations = [f.readline().strip() for _ in range(n)]
+    n = int(read_input(1)[0])  # Читаем количество операций
+    operations = read_input(1)[1:n + 1]  # Читаем операции, начиная со второй строки
 
     custom_set = CustomSet()
     results = []
 
     for operation in operations:
-        op_type, x = operation.split()
+        op_type, x = operation.split(' ')
         x = int(x)
 
         if op_type == 'A':
@@ -45,15 +40,13 @@ def main():
         elif op_type == 'D':
             custom_set.remove(x)
         elif op_type == '?':
-            if custom_set.exists(x):
-                results.append('Y')
-            else:
-                results.append('N')
+            results.append('Y' if custom_set.exists(x) else 'N')
 
-    # Записываем результаты в файл
-    with open(output_file, 'w') as f:
-        f.write('\n'.join(results) + '\n')
+    write_output(1, *results)  # Записываем результаты в выходной файл
+    print('\n'.join(results) + '\n')
 
 
 if __name__ == '__main__':
-    decorate(task=1, task_name='Array')
+    decorate(task=1, task_name='Array')  # Передаем номер задачи и название модуля
+
+

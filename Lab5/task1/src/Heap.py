@@ -26,7 +26,8 @@ def main():
     ln = int(lf[0])
     out = Heap(l, ln)
     write_output(1, out)
-
+    print(out)
+    print()
 
 if __name__ == '__main__':
     decorate(task=1,task_name='Heap')

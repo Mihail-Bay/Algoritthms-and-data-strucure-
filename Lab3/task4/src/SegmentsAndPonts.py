@@ -54,6 +54,8 @@ def main():
 
     res = (" ".join(map(str, res)) + "\n")
     write_output(4, res)
+    print(res)
+    print()
 
 if __name__ == "__main__":
     decorate(task=4, task_name='SegmentsAndPonts')

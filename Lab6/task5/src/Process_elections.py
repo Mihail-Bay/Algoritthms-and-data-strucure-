@@ -30,6 +30,9 @@ def process_elections(rd):
 def main():
     out = process_elections(read_input(5))
     write_output(5, out)
+    print(out)
+    print()
+
 
 if __name__ == '__main__':
     decorate(task=5, task_name='Process_elections')

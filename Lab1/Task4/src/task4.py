@@ -21,7 +21,8 @@ def main():
     lps = ', '.join(map(str, ind))  # Подготовка индексов к записи в файл
     sl = str(count) if count > 0 else "-1"  # Если значение не найдено, записываем -1
     write_output(4, sl, lps if count > 0 else "")
-
+    print(sl, lps if count > 0 else "")
+    print()
 
 if __name__ == '__main__':
     decorate(task=4, task_name='task4')

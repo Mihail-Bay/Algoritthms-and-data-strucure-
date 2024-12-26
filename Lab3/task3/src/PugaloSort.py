@@ -38,6 +38,8 @@ def main():
     result = can_sort_matriochkas(n, k, sizes)
 
     write_output(3, str(result))
+    print(str(result))
+    print()
 
 if __name__ == "__main__":
     decorate(task=3, task_name='PugaloSort')

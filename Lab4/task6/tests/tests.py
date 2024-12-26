@@ -1,7 +1,5 @@
 import unittest
 from Lab4.task6.src.bracket_sequence_1 import *
-from Lab4.utils import read_input
-
 
 class TestStack(unittest.TestCase):
     def setUp(self):

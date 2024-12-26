@@ -28,6 +28,8 @@ def main():
 
     res = Calculate_H_Index(citations)
     write_output(5, res )  # Указываем task при записи
+    print(res)
+    print()
 
 if __name__ == '__main__':
     decorate(task=5, task_name='HIndex')

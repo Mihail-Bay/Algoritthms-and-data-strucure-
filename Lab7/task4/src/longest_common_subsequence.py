@@ -32,7 +32,8 @@ def main():
     result = longest_common_subsequence(A, B)
 
     write_output(4, str(result) + "\n")
-
+    print(str(result) + "\n")
+    print()
 
 if __name__ == "__main__":
     decorate(task=4, task_name='longest_common_subsequence')

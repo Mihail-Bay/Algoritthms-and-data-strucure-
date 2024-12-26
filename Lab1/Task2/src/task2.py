@@ -32,7 +32,8 @@ def main():
 
     # Записываем результаты в выходной файл
     write_output(2, lps, sl)
-
+    print(lps, sl)
+    print()
 
 if __name__ == '__main__':
     decorate(task=2, task_name='task2')

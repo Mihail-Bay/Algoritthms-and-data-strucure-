@@ -32,6 +32,8 @@ def main():
     n, l = read_input(task=5)
     r = majority_element(l)
     write_output(5, str(r))
+    print(str(r))
+    print()
 
 if __name__ == '__main__':
     decorate(task=5, task_name='Delegate_Of_Majority')

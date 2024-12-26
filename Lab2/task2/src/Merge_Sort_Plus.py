@@ -36,6 +36,8 @@ def main():
     with open('../txtf.output.txt', 'w') as f:
         sl = merge_sort(l, f)
         write_output(2, ' '.join(map(str, sl)))
+        print(' '.join(map(str, sl)))
+        print()
 
 if __name__ == '__main__':
     decorate(task=2, task_name='Merge_Sort_Plus')

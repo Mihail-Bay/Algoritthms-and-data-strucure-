@@ -44,6 +44,8 @@ def main():
     result = count_beautiful_pairs(n, k, S, beautiful_pairs)
 
     write_output(7, result)
+    print(result)
+    print()
 
 
 if __name__ == '__main__':

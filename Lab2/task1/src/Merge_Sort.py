@@ -29,6 +29,7 @@ def main():
     n, l = read_input(task=1)
     sl = merge_sort(l)
     write_output(1, ' '.join(map(str, sl)))
-
+    print(' '.join(map(str, sl)))
+    print()
 if __name__ == '__main__':
     decorate(task=1, task_name='Merge_Sort')

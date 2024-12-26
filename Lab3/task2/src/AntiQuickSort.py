@@ -18,6 +18,8 @@ def main():
     test_array = (' '.join(map(str, test_array)))
 
     write_output(2, test_array)
+    print(test_array)
+    print()
 
 
 if __name__ == '__main__':

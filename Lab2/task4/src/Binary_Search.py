@@ -22,6 +22,9 @@ def main():
         r.append(ind)
 
     write_output(4, ' '.join(map(str, r)))
+    print(' '.join(map(str, r)))
+    print()
+
 
 if __name__ == '__main__':
     decorate(task=4, task_name='Binary_Search')

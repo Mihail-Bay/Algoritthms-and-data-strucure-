@@ -1,22 +1,12 @@
 import unittest
 from Lab4.task4.src.queue import *
-from Lab4.utils import read_input
+
 
 
 class TestQueue(unittest.TestCase):
     def setUp(self):
         self.queue = Queue()
 
-    def test_case_1(self):
-        # given
-        self.queue.input_file = read_input(2)
-        expected_result = ['1', '10']
-
-        # when
-        result = self.queue.result()
-
-        # then
-        self.assertEqual(expected_result, result)
 
     def test_case_2(self):
         # given

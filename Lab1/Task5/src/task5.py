@@ -26,6 +26,8 @@ def main():
 
     # Запись результата в файл
     write_output(5, ' '.join(map(str, sl)))
+    print(' '.join(map(str, sl)))
+    print()
 
 if __name__ == '__main__':
     decorate(task=1, task_name='task1')

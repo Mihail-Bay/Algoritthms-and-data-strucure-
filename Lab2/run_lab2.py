@@ -2,7 +2,7 @@ from subprocess import *
 green = '\033[92m'
 end = '\033[0m'
 
-files1 = [
+files2 = [
     'task1/src/Merge_Sort.py',
     'task2/src/Merge_Sort_Plus.py',
     'task3/src/Number_of_Inversions.py',
@@ -12,7 +12,7 @@ files1 = [
 
 ]
 
-test_files1 = [
+test_files2 = [
     'task1/tests/test_Merge_Sort.py',
     'task2/tests/test_Merge_Sort_Plus.py',
     'task3/tests/test_Number_of_Inversions.py',
@@ -23,22 +23,22 @@ test_files1 = [
 
 ]
 
-def run_tasks(files1):
+def run_tasks(files2):
     print('-----------------------------------------------------------------------------------------------------------')
     print('Запуск программ')
     print('-----------------------------------------------------------------------------------------------------------')
 
-    for file in files1:
+    for file in files2:
         print(f'результат выполнения файла {green}{file}{end}:')
         run(['python', file])
         print('-----------------------------------------------------------------------------------------------------------')
 
 
-def run_tests(test_files1):
+def run_tests(test_files2):
     print('Запуск тестов')
     print('-----------------------------------------------------------------------------------------------------------')
 
-    for test_file in test_files1:
+    for test_file in test_files2:
         print(f'результат выполнения файла {green}{test_file}{end}:')
         # Запуск тестов с использованием unittest
         result = run(['python', '-m', 'unittest', test_file], capture_output=True, text=True)
@@ -47,8 +47,8 @@ def run_tests(test_files1):
         print('-----------------------------------------------------------------------------------------------------------')
 
 def main():
-    run_tasks(files1)
-    run_tests(test_files1)
+    run_tasks(files2)
+    run_tests(test_files2)
 
 if __name__ == '__main__':
     main()

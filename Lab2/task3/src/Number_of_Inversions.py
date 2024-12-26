@@ -34,6 +34,8 @@ def main():
     n, l = read_input(task=3)
     sl, inversions = merge_sort_and_count(l)
     write_output(3, str(inversions))
+    print(str(inversions))
+    print()
 
 if __name__ == '__main__':
     decorate(task=3, task_name='Number_of_Inversions')

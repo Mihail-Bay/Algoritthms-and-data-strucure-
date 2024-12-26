@@ -31,6 +31,8 @@ def main():
 
     # Записываем отсортированные данные в файл
     write_output(1, sl)
+    print(sl)
+    print()
 
 if __name__ == '__main__':
     decorate(task=1, task_name='task1')
